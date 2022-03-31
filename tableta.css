@@ -4,7 +4,6 @@
 
 body {
     background-image: url('./tableta.jpeg');
-    background-repeat: no-repeat;
     background-size: 100%, 100%;
 }
 
@@ -13,16 +12,30 @@ body {
     background-color: rgb(92, 92, 92);
 
     font-size: 2vw;
-    border: 1px solid black;
+    border-width: 1px 1px 0 1px;
+    border-top: 2px solid black;
+    border-right:  2px solid black;
+    border-left:   2px solid black;
     border-radius: 1cm;
     width: 50%;
-    margin-left: 50%;
+    height: 10%;
+    margin-left: 42%;
     margin-top: 3%;
 
-    display: inline-flex;
+   /* display: inline-flex; */
 
     animation: nav_bar 500ms;
     
+}
+
+.nav_logo {
+    display: inline-flex;
+    width: 100%;
+}
+
+.poz_logo {
+    max-width: 10%;
+    max-height: 10%;
 }
 
 @keyframes nav_bar {
@@ -66,3 +79,424 @@ body {
     margin-top: 8%;
     font-size: 4vw;
 }
+
+#despre {
+    font-size: 2vw;
+    color: rgb(153, 226, 202);
+    display: none;
+}
+
+.poz {
+    max-width: 40vw;
+    max-height: 40vh;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pozz9 {
+    max-width: 40vw;
+    max-height: 40vh;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pozz4 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.poz4 {
+    max-height: 80vh;
+}
+
+.pozz14 {
+    grid-row-start: 4;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    
+}
+.poz14 {
+    max-height: 80vh;
+}
+.pozz13 {
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 3;
+}
+.poz13 {
+    max-height: 80vh;
+}
+
+.pozz8 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    
+}
+.poz8 {
+    max-height: 80vh;
+}
+
+.pozz3 {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+}
+.poz3 {
+    max-height: 80vh;
+}
+
+#caini {
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+   
+}
+
+.poz1 {
+    z-index: 9;
+}
+.pozz1:hover .poz1 {
+    opacity: 20%;
+}
+.pozz1:hover .det_poz1 {
+    display: block;
+}
+.det_poz1 {
+    position: absolute;
+    margin-top: -20%;
+    font-size: 1.7vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz2 {
+    position: relative;
+}
+
+.poz2 {
+    z-index: 9;
+}
+.pozz2:hover .poz2 {
+    opacity: 20%;
+}
+.pozz2:hover .det_poz2 {
+    display: block;
+}
+.det_poz2 {
+    position: absolute;
+    margin-top: -90%;
+    font-size: 1.8vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz3 {
+    position: relative;
+}
+
+.poz3 {
+    z-index: 9;
+}
+.pozz3:hover .poz3 {
+    opacity: 20%;
+}
+.pozz3:hover .det_poz3 {
+    display: block;
+}
+.det_poz3 {
+    position: absolute;
+    margin-top: -120%;
+    font-size: 2.5vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz4 {
+    position: relative;
+}
+
+.poz4 {
+    z-index: 9;
+}
+.pozz4:hover .poz4 {
+    opacity: 20%;
+}
+.pozz4:hover .det_poz4 {
+    display: block;
+}
+.det_poz4 {
+    position: absolute;
+    margin-top: -130%;
+    font-size: 2.5vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz5 {
+    position: relative;
+}
+
+.poz5 {
+    z-index: 9;
+}
+.pozz5:hover .poz5 {
+    opacity: 20%;
+}
+.pozz5:hover .det_poz5 {
+    display: block;
+}
+.det_poz5 {
+    position: absolute;
+    margin-top: -84%;
+    margin-left: 12%;
+    font-size: 2vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz6 {
+    position: relative;
+}
+
+.poz6 {
+    z-index: 9;
+}
+.pozz6:hover .poz6 {
+    opacity: 20%;
+}
+.pozz6:hover .det_poz6 {
+    display: block;
+}
+.det_poz6 {
+    position: absolute;
+    margin-top: -84%;
+    margin-left: 12%;
+    font-size: 2vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz7 {
+    position: relative;
+}
+
+.poz7 {
+    z-index: 9;
+}
+.pozz7:hover .poz7 {
+    opacity: 20%;
+}
+.pozz7:hover .det_poz7 {
+    display: block;
+}
+.det_poz7 {
+    position: absolute;
+    margin-top: -84%;
+    margin-left: 12%;
+    font-size: 2vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz8 {
+    position: relative;
+}
+
+.poz8 {
+    z-index: 9;
+}
+.pozz8:hover .poz8 {
+    opacity: 20%;
+}
+.pozz8:hover .det_poz8 {
+    display: block;
+}
+.det_poz8 {
+    position: absolute;
+    margin-top: -135%;
+    margin-left: 12%;
+    font-size: 2.5vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz9 {
+    position: relative;
+}
+
+.poz9 {
+    z-index: 9;
+}
+.pozz9:hover .poz9 {
+    opacity: 20%;
+}
+.pozz9:hover .det_poz9 {
+    display: block;
+}
+.det_poz9 {
+    position: absolute;
+    margin-top: -87%;
+    margin-left: 12%;
+    font-size: 2vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz10 {
+    position: relative;
+}
+
+.poz10 {
+    z-index: 9;
+}
+.pozz10:hover .poz10 {
+    opacity: 20%;
+}
+.pozz10:hover .det_poz10 {
+    display: block;
+}
+.det_poz10 {
+    position: absolute;
+    margin-top: -87%;
+    margin-left: 12%;
+    font-size: 2vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz11 {
+    position: relative;
+}
+
+.poz11 {
+    z-index: 9;
+}
+.pozz11:hover .poz11 {
+    opacity: 20%;
+}
+.pozz11:hover .det_poz11 {
+    display: block;
+}
+.det_poz11 {
+    position: absolute;
+    margin-top: -85%;
+    margin-left: 12%;
+    font-size: 2vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz12 {
+    position: relative;
+}
+
+.poz12 {
+    z-index: 9;
+}
+.pozz12:hover .poz12 {
+    opacity: 20%;
+}
+.pozz12:hover .det_poz12 {
+    display: block;
+}
+.det_poz12 {
+    position: absolute;
+    margin-top: -85%;
+    margin-left: 12%;
+    font-size: 2vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz13 {
+    position: relative;
+}
+
+.poz13 {
+    z-index: 9;
+}
+.pozz13:hover .poz13 {
+    opacity: 20%;
+}
+.pozz13:hover .det_poz13 {
+    display: block;
+}
+.det_poz13 {
+    position: absolute;
+    margin-top: -135%;
+    margin-left: 12%;
+    font-size: 2.5vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz14 {
+    position: relative;
+}
+
+.poz14 {
+    z-index: 9;
+}
+.pozz14:hover .poz14 {
+    opacity: 20%;
+}
+.pozz14:hover .det_poz14 {
+    display: block;
+}
+.det_poz14 {
+    position: absolute;
+    margin-top: -135%;
+    margin-left: 12%;
+    font-size: 2.5vw;
+    display: none;
+    color:turquoise
+    
+}
+
+.pozz15 {
+    position: relative;
+}
+
+.poz15 {
+    z-index: 9;
+}
+.pozz15:hover .poz15 {
+    opacity: 20%;
+}
+.pozz15:hover .det_poz15 {
+    display: block;
+}
+.det_poz15 {
+    position: absolute;
+    margin-top: -85%;
+    margin-left: 12%;
+    font-size: 2vw;
+    display: none;
+    color:turquoise
+    
+}
+
+#caini {
+    display: none;
+}
+
+#intrebari {
+    font-size: 2vw;
+    color: turquoise;
+    display: none;
+}
+

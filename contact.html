@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media='screen and (max-width: 400px)' href="tel_con.css"/>
+    <link rel="stylesheet" media='screen and (min-width: 401px) and (max-width: 700px)' href="tab_con.css"/>
+    <link rel="stylesheet" media='screen and (min-width: 701px)' href="desk_con.css"/>
+    <script src="./edit.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="nav_logo">
+            <img src="./logo.png" class="poz_logo" onclick="go_home()">
+            <nav class="nav_nav">
+                <div class="div_nav">
+                    <li class="navi" onclick="go_home()">Home</li>
+                    <li class="navi" onclick="go_oferte()">Oferte</li>
+                    <li class="navi" onclick="go_contact()">Contact</li>
+                    <li class="navi" onclick="go_adopta()">Adopta</li>
+                </div> 
+            </nav> 
+          </div>
+
+          <div class="harta">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2850.2826206713926!2d26.174748951079454!3d44.40684597900013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5338d5287e4bf0f4!2zNDTCsDI0JzI0LjciTiAyNsKwMTAnMzcuMCJF!5e0!3m2!1sro!2sro!4v1648675397261!5m2!1sro!2sro"></iframe>
+            
+            <div class="date_contact">
+                <p>
+                    <h1>Date de contact</h1>
+                    <h2>Unde ne găsiți?</h2>
+                
+                </p>
+                <p><span style="font-weight: bold;">Adresa:</span>  Strada Mizil 5, București, sector 3</p>
+                <p><span style="font-weight: bold;">Persoana de contact:</span> Danciu Razvan</p>
+                <p><span style="font-weight: bold;">Email:</span> mariorazvan.2002@gmail.com</p>
+                <p><span style="font-weight: bold;">Telefon:</span> 0762548269</p>
+                
+            </div>
+
+            <div class="mesaj">
+                <h1 style="font-size: 2.5vw;">Scrie-ne!!</h1>
+                <br>
+                <input type="text" placeholder="Nume" id="nume"><br>
+                <input type="text" placeholder="Email" id="email"><br>
+                <input type="text" placeholder="Telefon" id="tel"><br>
+                <textarea placeholder="Mesaj" id="msj" cols="30" rows="10"></textarea><br>
+                <button>TRIMITE</button>
+            </div>
+            
+          </div>
+
+          
+    </main>
+</body>

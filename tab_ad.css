@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./tableta.jpeg');
+    background-size: 100%, 100%;
+}
+
+.nav_nav {
+    
+    background-color: rgb(92, 92, 92);
+
+    font-size: 2vw;
+    border-width: 1px 1px 0 1px;
+    border-top: 2px solid black;
+    border-right:  2px solid black;
+    border-left:   2px solid black;
+    border-radius: 1cm;
+    width: 50%;
+    height: 10%;
+    margin-left: 42%;
+    margin-top: 3%;
+
+   /* display: inline-flex; */
+
+    animation: nav_bar 500ms;
+    
+}
+
+.nav_logo {
+    display: inline-flex;
+    width: 100%;
+}
+
+.poz_logo {
+    max-width: 10%;
+    max-height: 10%;
+}
+
+@keyframes nav_bar {
+    from {
+        opacity: 0%;
+        margin-top: 0%;
+        width: 0%;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+    to {
+        opacity: 100%;
+        margin-top: 3%;
+        width: 50%;
+    }
+}
+
+.navi{
+    
+    padding-left: 5%;
+    padding-right: 5%;
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 0 3px #999;
+}
+
+.div_nav {
+    margin-left: 12%;
+    display: inline-flex;
+}
+
+.navi:active {
+    transform: translateY(1%);
+    box-shadow: 0 1px #999;
+    background-color: brown;
+}
+.nav_home {
+    margin-right: 20%;
+    margin-top: 8%;
+    font-size: 4vw;
+}
+#buton {
+    margin-left: 42vw;
+    width: 15vw;
+    height: 2vw;
+    color: red;
+    font-size: 1.5vw;
+
+    animation: vine 300ms ease-in-out;
+}
+.poz_bff {
+    max-width: 35vw;
+    max-height: 35vw;
+    margin-left: 32vw;
+    margin-top: 2vw;
+
+    animation: vine 300ms ease-in-out;
+}
+h1{
+    color: rgb(212, 185, 110);
+}
+
+@keyframes vine {
+    from {
+        margin-left: 0;
+    }
+}
+
+
+#chest {
+    
+    margin-left: 32vw;
+    border: 1px solid black;
+    display: none;
+    text-align: center;
+    background-color: rgb(255, 246, 233);
+    width: 35vw;
+    height: 30vw;
+    animation: vine 300ms ease-in-out;
+    color: rgb(173, 136, 214);
+}
+
+#in {
+    width: 20vw;
+    height: 2vw;
+    margin-bottom: 2%;
+    border-radius: 1cm;
+    border: 0;
+}
+
+p {
+    font-size: 2vw;
+}
+
+.inreg {
+    width: 20vw;
+    height: 2vw;
+    margin-bottom: 2%;
+    border-radius: 1cm;
+}
+
+#mss {
+    margin-top: 15vw;
+    display: none;
+}
+

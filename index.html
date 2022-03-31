@@ -14,16 +14,18 @@
 
 <body>
     <main>
-        <div>
-          <nav class="nav_nav">
+      <div class="nav_logo">
+        <img src="./logo.png" class="poz_logo" onclick="go_home()">
+        <nav class="nav_nav">
             <div class="div_nav">
-                <li class="navi">Home</li>
-                <li class="navi">Galerie</li>
-                <li class="navi">Contact</li>
-                <li class="navi">Adopta</li>
-            </div>
-            
-          </nav>  
+                <li class="navi" onclick="go_home()">Home</li>
+                <li class="navi" onclick="go_oferte()">Oferte</li>
+                <li class="navi" onclick="go_contact()">Contact</li>
+                <li class="navi" onclick="go_adopta()">Adopta</li>
+            </div> 
+        </nav> 
+      </div>    
+       
 
           <nav class="nav_home">
             <div class="div_nav_home">
@@ -34,12 +36,187 @@
                        iar acum avem in grija peste 200 de caini care asteapta sa fie adoptati de catre niste oameni la fel de iubitori.
                     </p>
                 </div>
-                <li class="navi">Cainii nostri</li>
-                <li class="navi">Oferte</li>
-                <li class="navi">Intrebari frecvente</li>
+
+                <li class="navi" onclick="afis_del_caini()">Cainii nostri</li>
+                <div id="caini">
+                  <div class="pozz1">
+                    <img src="./catei/5882533.jpg" class="poz poz1">
+                    <div class="det_poz1">
+                      <p>Nume: Grasu'</p>
+                      <p>Rasa: Pug</p>
+                      <p>Varsta: 1an</p>
+                      <p>Altele: Rezervat deja de Ana Voinea</p>
+                    </div>
+                  </div>
+
+                  <div class="pozz2">
+                    <img src="./catei/aGFzaD0yZjk3OTI2ZGY4ZjA4N2VjOWZjZjRhZWM3ZTllZWFhZA==.thumb.jpg" class="poz poz2">
+                    <div class="det_poz2">
+                      <p>Nume: Upu</p>
+                      <p>Rasa: Nu stim, l-am gasit pe strada</p>
+                      <p>Varsta: vreo 10 luni</p>
+                      <p>Altele: Latra mult la pereti</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz3">
+                    <img src="./catei/image (1).webp" class="poz poz3">
+                    <div class="det_poz3">
+                      <p>Nume: Puchin</p>
+                      <p>Rasa: Maidanez ceva</p>
+                      <p>Varsta: 5 saptamani</p>
+                      <p>Altele: Cel mai tanar de aici</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz4">
+                    <img src="./catei/image.webp" class="poz poz4">
+                    <div class="det_poz4">
+                      <p>Nume: Albuță</p>
+                      <p>Rasa: Alt maidanez</p>
+                      <p>Varsta: 10 luni</p>
+                      <p>Altele: Ii plac bananele</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz5">
+                    <img src="./catei/images.jpg" class="poz poz5">
+                    <div class="det_poz5">
+                      <p>Nume: Hepi-Mil</p>
+                      <p>Rasa: da</p>
+                      <p>Varsta: 7 luni</p>
+                      <p>Altele: nu</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz6">
+                    <img src="./catei/labrador-retriver-adoptie.jpg" class="poz poz6">
+                    <div class="det_poz6">
+                      <p>Nume: Fil-Frop</p>
+                      <p>Rasa: Labrador</p>
+                      <p>Varsta: 9 luni</p>
+                      <p>Altele: e fițos</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz7">
+                    <img src="./catei/nomi.jpg" class="poz poz7">
+                    <div class="det_poz7">
+                      <p>Nume: Norocel</p>
+                      <p>Rasa: Beagle</p>
+                      <p>Varsta: 6 luni</p>
+                      <p>Altele: e timid</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz8">
+                    <img src="./catei/vanzare-catei-ciobanesti-carpatini-59826-s.jpg" class="poz poz8">
+                    <div class="det_poz8">
+                      <p>Nume: Ochi-Pătat</p>
+                      <p>Rasa: Ciobanesc carpatin</p>
+                      <p>Varsta: 3 luni</p>
+                      <p>Altele: creste mare rau</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz9">
+                    <img src="./catei/9.jpg" class="poz poz9">
+                    <div class="det_poz9">
+                      <p>Nume: Cookie</p>
+                      <p>Rasa: Golden Retriever</p>
+                      <p>Varsta: 3 ani</p>
+                      <p>Altele: voi pierdeti daca nu il luati</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz10">
+                    <img src="./catei/10.jpg" class="poz poz10">
+                    <div class="det_poz10">
+                      <p>Nume: Urechilă</p>
+                      <p>Rasa: Buldog Francez</p>
+                      <p>Varsta: 3 luni</p>
+                      <p>Altele: nu stie sa inoate</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz11">
+                    <img src="./catei/11.jpg" class="poz poz11">
+                    <div class="det_poz11">
+                      <p>Nume: Lăbuță</p>
+                      <p>Rasa: n-are</p>
+                      <p>Varsta: 3 luni</p>
+                      <p>Altele: n-are</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz12">
+                    <img src="./catei/12.jpg" class="poz poz12">
+                    <div class="det_poz12">
+                      <p>Nume: Dexter</p>
+                      <p>Rasa: Rottweiler</p>
+                      <p>Varsta: 2 luni</p>
+                      <p>Altele: e destept</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz13">
+                    <img src="./catei/13.jpg" class="poz poz13">
+                    <div class="det_poz13">
+                      <p>Nume: Pufina</p>
+                      <p>Rasa: Bichon</p>
+                      <p>Varsta: 14 luni</p>
+                      <p>Altele: va rugam luati-o</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz14">
+                    <img src="./catei/14.jpg" class="poz poz14">
+                    <div class="det_poz14">
+                      <p>Nume: 2frati</p>
+                      <p>Rasa: Ciobanesc si Beagle?</p>
+                      <p>Varsta: 2 ani</p>
+                      <p>Altele: sunt la pachet</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pozz15">
+                    <img src="./catei/15.jpg" class="poz poz15">
+                    <div class="det_poz15">
+                      <p>Nume: Dog</p>
+                      <p>Rasa: caine sub acoperire</p>
+                      <p>Varsta: 2 ani</p>
+                      <p>Altele: a venit aici si am pastrat-o</p>
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <li class="navi" onclick="afis_del_intr()">Intrebari frecvente</li>
+                <div id="intrebari">
+                  <ul>
+                    <li>Cum adpot?</li>
+                    <li>Intra la sectiunea "Adopta", fa-ti un cont si urmeaza pasii ulteriori.</li>
+                  </ul>
+
+                  <ul>
+                    <li>Cainii sunt vaccinati si au carnet de sanatate?</li>
+                    <li>Da.</li>
+                  </ul>
+
+                  <ul>
+                    <li>Oricine poate adopta un caine?</li>
+                    <li>Nu, avem experti autorizati care fac o verificare celui care doreste sa adopte,
+                        iar dupa acea verificare se va decide daca persoana respectiva poate adopta un caine sau mai multi.
+                    </li>
+                  </ul>
+
+                  <br>
+                  <ul>
+                    <p>In caz ca ai alte intrebari, nu ezita sa lasi una la sectiunea "Contact" si ti se va raspunde in cel mai scurt timp posibil</p>
+                  </ul>
+                </div>
             </div>
           </nav>  
-        </div>
         
     </main>
 </body>
