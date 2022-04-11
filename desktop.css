@@ -516,3 +516,9 @@ body {
     display: none;
 }
 
+.ceva {
+    display: none;
+}
+.drop:hover .ceva {
+    display: block;
+}
