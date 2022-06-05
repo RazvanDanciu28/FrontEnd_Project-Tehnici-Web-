@@ -1,6 +1,4 @@
-localStorage.setItem("nr_revs", 2); //nr_revs se refera la numarul de pagini
-localStorage.setItem("pag_curent", 1); //pag_curent se refera la pagina care este afisata pe site in momentul respectiv
-localStorage.setItem("nr_tot_revs", 5); //nr_tot_revs se refera la numarul de reviews
+
 
 //genereaza culoare random
 function generateRandomColor(){
@@ -95,6 +93,55 @@ function ms() {
 }
 
 window.onload = function() {
+  //verifica daca am aceste chei in localStorage
+  var test1 = localStorage.getItem("nr_revs");
+  var test3 = localStorage.getItem("nr_tot_revs");
+  console.log(test1, test3);
+
+  //daca nu gaseste nimic in localStorage, initializeaza valorile de la divurile bagate manual in fisierul html
+  if (!test1) localStorage.setItem("nr_revs", 2); //nr_revs se refera la numarul de pagini
+  localStorage.setItem("pag_curent", 1); //pag_curent se refera la pagina care este afisata pe site in momentul respectiv
+  if (!test3) localStorage.setItem("nr_tot_revs", 5); //nr_tot_revs se refera la numarul de reviews
+
+  //crearea recenziilor adaugate manual inainte de un refresh
+  var numarRev = Number(test3);
+  if (numarRev > 5){
+    for (let RevCur = 6; RevCur <= numarRev; RevCur += 1){ //RevCur imi da numarul curent din review
+      var mod = Math.trunc(RevCur % 3);
+      var numarPagina = Math.trunc(RevCur / 3);
+      //stabilire numar pagina in functie de numarul review-ului
+      if (mod) numarPagina += 1;
+
+      //crearea efectiva
+      var vec_rec = document.createElement("div"); //creez divul in care va fi recenzia
+      var divVechi_mare = document.getElementById("div_mare_rev");
+      divVechi_mare.appendChild(vec_rec);
+
+      vec_rec.id = "rev_" + RevCur; //stabilesc id ul
+      vec_rec.classList.add('reviews', 'rev_p' + numarPagina); //stabilesc clasele
+      console.log('rev_p' + numarPagina);
+
+      //imi introduc in recenzie datele luate din localStorage
+      var nume_val = localStorage.getItem("rev" + RevCur + "_nume");
+      var email_val = localStorage.getItem("rev" + RevCur + "_email");
+      var nota_val = localStorage.getItem("rev" + RevCur + "_nota");
+      var msj_val = localStorage.getItem("rev" + RevCur + "_msj");
+
+      var nume_email_nota_vechi = document.createElement("pre");
+      vec_rec.appendChild(nume_email_nota_vechi);
+      nume_email_nota_vechi.innerHTML = "Nume: " + nume_val + "\n" + "Email: " + email_val + "\n" + "Nota: " + nota_val + "/10";
+       
+      var hrv = document.createElement("hr");
+      vec_rec.appendChild(hrv);
+
+      var mesajv = document.createElement("p");
+      vec_rec.appendChild(mesajv);
+      mesajv.innerText = msj_val;
+
+      vec_rec.style.display = 'none';
+    }
+  }
+
   //vizualizare recenzii
   var recenzii = document.getElementById("recenzii");
   recenzii.addEventListener("click", afis_del_rec);
@@ -119,6 +166,7 @@ window.onload = function() {
     var pag_curent = document.getElementsByClassName("rev_p" + String(localStorage.getItem("pag_curent")));
     var nr_pag = Number(localStorage.getItem("pag_curent"));
     nr_pag -= 1;
+    console.log(nr_pag);
     if (nr_pag){
       localStorage.setItem("pag_curent", nr_pag);
       var pag_viit = document.getElementsByClassName("rev_p" + String(localStorage.getItem("pag_curent")));
@@ -132,6 +180,7 @@ window.onload = function() {
     var nr_pag = Number(localStorage.getItem("pag_curent"));
     nr_pag += 1;
     var nr_total_pags = Number(localStorage.getItem("nr_revs"));
+    console.log(nr_pag, nr_total_pags);
     if (nr_pag <= nr_total_pags){
       localStorage.setItem("pag_curent", nr_pag);
       var pag_viit = document.getElementsByClassName("rev_p" + String(localStorage.getItem("pag_curent")));
@@ -176,10 +225,16 @@ window.onload = function() {
       //stabilesc al catalea review este si actualizez in localStorage
       var nr_rev = Number(localStorage.getItem("nr_tot_revs"));
       nr_rev += 1;
+      console.log(nr_rev);
       localStorage.setItem("nr_tot_revs", nr_rev);
 
+      //setez valorile in localStorage pentru a le incarca in pagina la refresh
+      localStorage.setItem("rev" + nr_rev + "_nume", name_value);
+      localStorage.setItem("rev" + nr_rev + "_email", email_value);
+      localStorage.setItem("rev" + nr_rev + "_nota", nota_value);
+      localStorage.setItem("rev" + nr_rev + "_msj", msj_value);
+
       new_rec.id = "rev_" + nr_rev; //stabilesc id ul
-      //new_rec.innerHTML = new_rec.id;
 
       //stabilesc pe a cata pagina va fi nou review
       var set_nrPag = nr_rev % 3;
@@ -187,10 +242,7 @@ window.onload = function() {
         var nrPag = localStorage.getItem("nr_revs");
         new_rec.classList.add('reviews', 'rev_p' + nrPag);
 
-        nrPag = Number(nrPag);
-        pag_cur = Number(localStorage.getItem("pag_curent"));
-        if (nrPag != pag_cur) new_rec.style.display = 'none';
-       
+        new_rec.style.display = 'none';
       }
       else{
         //TREBUIE FACUT CAZUL CU 1 => CREEZI O NOUA PAGINA
@@ -200,9 +252,7 @@ window.onload = function() {
         localStorage.setItem("nr_revs", nrPag);
         new_rec.classList.add('reviews', 'rev_p' + nrPag);
 
-        nrPag = Number(nrPag);
-        pag_cur = Number(localStorage.getItem("pag_curent"));
-        if (nrPag != pag_cur) new_rec.style.display = 'none';
+         new_rec.style.display = 'none';
       }
       
       //imi introduc in recenzie datele luate din inputul formularului
@@ -226,6 +276,8 @@ window.onload = function() {
     }
   }
 }
+
+
 
 //contdown pentru oferte
 var count1 = new Date("Jun 24, 2022 00:00:00").getTime();
