@@ -1,8 +1,26 @@
+localStorage.setItem("nr_revs", 2); //nr_revs se refera la numarul de pagini
+localStorage.setItem("pag_curent", 1); //pag_curent se refera la pagina care este afisata pe site in momentul respectiv
+localStorage.setItem("nr_tot_revs", 5); //nr_tot_revs se refera la numarul de reviews
+
+//genereaza culoare random
+function generateRandomColor(){
+  let maxVal = 0xFFFFFF; // 16777215
+  let randomNumber = Math.random() * maxVal; 
+  randomNumber = Math.floor(randomNumber);
+  randomNumber = randomNumber.toString(16);
+  let randColor = randomNumber.padStart(6, 0);   
+  return `#${randColor.toUpperCase()}`
+}
+
+
 function afis_del_despre() {
     var el = document.getElementById("despre");
     var style = window.getComputedStyle(el);
 
-    if (style.display == `none`) el.style.display = `block`;
+    if (style.display == `none`){
+      el.style.display = `block`;
+      el.style.color = generateRandomColor(); //la fiecare incarcare se genereaza o culoare noua random
+    } 
     else el.style.display = `none`;
 
 }
@@ -20,7 +38,10 @@ function afis_del_intr() {
     var el = document.getElementById("intrebari");
     var style = window.getComputedStyle(el);
 
-    if (style.display == `none`) el.style.display = `grid`;
+    if (style.display == `none`){
+      el.style.display = `block`;
+      el.style.color = generateRandomColor(); ////la fiecare incarcare se genereaza o culoare noua random
+    }
     else el.style.display = `none`;
 
 }
@@ -49,10 +70,12 @@ function pleaca() {
   clearInterval(id);
   id = setInterval(frame, 0.1);
   function frame() {
-    if (pos >= 950) {
+    if (pos >= 850) {
       clearInterval(id);
       elem.style.display = `none`;
       elem2.style.display = `none`;
+      var elem3 = document.getElementById("chest"); 
+      elem3.style.display = `block`;
     } 
     else {
       pos+=10; 
@@ -62,8 +85,7 @@ function pleaca() {
     }
   }
 
-  var elem3 = document.getElementById("chest"); 
-  elem3.style.display = `block`;
+  
 
 }
 
@@ -71,3 +93,231 @@ function ms() {
     document.getElementById("chest_inreg").style.display = `none`;
     document.getElementById("mss").style.display = `block`;
 }
+
+window.onload = function() {
+  //vizualizare recenzii
+  var recenzii = document.getElementById("recenzii");
+  recenzii.addEventListener("click", afis_del_rec);
+  function afis_del_rec(){
+      var el = document.getElementById("rec_tot");
+      var but_ad = document.getElementById("ad_rec");
+      var style = window.getComputedStyle(el);
+
+      if (style.display == `none`) el.style.display = `inline-flex`, but_ad.style.display = 'block';
+      else el.style.display = but_ad.style.display = `none`;
+  }
+
+  //sageti
+  var st = document.getElementById("st");
+  var dr = document.getElementById("dr");
+  st.addEventListener("click", muta_stanga);
+  dr.addEventListener("click", muta_dreapta);
+
+
+  //glisare recenzii
+  function muta_stanga(){
+    var pag_curent = document.getElementsByClassName("rev_p" + String(localStorage.getItem("pag_curent")));
+    var nr_pag = Number(localStorage.getItem("pag_curent"));
+    nr_pag -= 1;
+    if (nr_pag){
+      localStorage.setItem("pag_curent", nr_pag);
+      var pag_viit = document.getElementsByClassName("rev_p" + String(localStorage.getItem("pag_curent")));
+
+      for (var i = 0; i < pag_curent.length; i++) pag_curent[i].style.display = 'none';
+      for (var i = 0; i < pag_viit.length; i++) pag_viit[i].style.display = 'block';
+    }
+  }
+  function muta_dreapta(){
+    var pag_curent = document.getElementsByClassName("rev_p" + String(localStorage.getItem("pag_curent")));
+    var nr_pag = Number(localStorage.getItem("pag_curent"));
+    nr_pag += 1;
+    var nr_total_pags = Number(localStorage.getItem("nr_revs"));
+    if (nr_pag <= nr_total_pags){
+      localStorage.setItem("pag_curent", nr_pag);
+      var pag_viit = document.getElementsByClassName("rev_p" + String(localStorage.getItem("pag_curent")));
+  
+      for (var i = 0; i < pag_curent.length; i++) pag_curent[i].style.display = 'none';
+      for (var i = 0; i < pag_viit.length; i++) pag_viit[i].style.display = 'block';
+    }
+  }
+
+  //adauga recenzie
+  var but_ad = document.getElementById("ad_rec");
+  but_ad.addEventListener("click", adauga);
+  function adauga(){
+    //dispare pagina de recenzii
+    var el = document.getElementById("rec_tot");
+    var but_ad = document.getElementById("ad_rec");
+    el.style.display = but_ad.style.display = `none`;
+
+    //apare formularul pentru recenzii
+    var form = document.getElementById("adauga_recenzie");
+    form.style.display = 'block';
+  }
+
+
+  //CREARE RECENZIE
+  var but_send = document.getElementById("send");
+  but_send.addEventListener("click", creare);
+  function creare(){
+    var name_value = document.getElementById("nume").value;
+    var email_value = document.getElementById("email").value;
+    var nota_value = document.getElementById("nota").value;
+    var msj_value = document.getElementById("msj").value;
+        
+          
+    if (!name_value || !email_value || !nota_value || !msj_value) alert("Completeaza toate campurile!");
+    else{
+      var new_rec = document.createElement("div"); //creez divul in care va fi recenzia
+      var div_mare = document.getElementById("div_mare_rev");
+      console.log(div_mare);
+      div_mare.appendChild(new_rec);
+      
+      //stabilesc al catalea review este si actualizez in localStorage
+      var nr_rev = Number(localStorage.getItem("nr_tot_revs"));
+      nr_rev += 1;
+      localStorage.setItem("nr_tot_revs", nr_rev);
+
+      new_rec.id = "rev_" + nr_rev; //stabilesc id ul
+      //new_rec.innerHTML = new_rec.id;
+
+      //stabilesc pe a cata pagina va fi nou review
+      var set_nrPag = nr_rev % 3;
+      if (set_nrPag != 1){ //daca set_nrPag e mai mare decat 1, noul review ramane pe pagina curenta
+        var nrPag = localStorage.getItem("nr_revs");
+        new_rec.classList.add('reviews', 'rev_p' + nrPag);
+
+        nrPag = Number(nrPag);
+        pag_cur = Number(localStorage.getItem("pag_curent"));
+        if (nrPag != pag_cur) new_rec.style.display = 'none';
+       
+      }
+      else{
+        //TREBUIE FACUT CAZUL CU 1 => CREEZI O NOUA PAGINA
+        var nrPag = Number(localStorage.getItem("nr_revs"));
+        nrPag += 1;
+        nrPag = String(nrPag);
+        localStorage.setItem("nr_revs", nrPag);
+        new_rec.classList.add('reviews', 'rev_p' + nrPag);
+
+        nrPag = Number(nrPag);
+        pag_cur = Number(localStorage.getItem("pag_curent"));
+        if (nrPag != pag_cur) new_rec.style.display = 'none';
+      }
+      
+      //imi introduc in recenzie datele luate din inputul formularului
+      // var name_value = document.getElementById("nume").value;
+      // var email_value = document.getElementById("email").value;
+      // var nota_value = document.getElementById("nota").value;
+      // var msj_value = document.getElementById("msj").value;
+      var nume_email_nota = document.createElement("pre");
+      new_rec.appendChild(nume_email_nota);
+      nume_email_nota.innerHTML = "Nume: " + name_value + "\n" + "Email: " + email_value + "\n" + "Nota: " + nota_value + "/10";
+       
+      var hr = document.createElement("hr");
+      new_rec.appendChild(hr);
+
+      var mesaj = document.createElement("p");
+      new_rec.appendChild(mesaj);
+      mesaj.innerText = msj_value;
+
+      var form = document.getElementById("adauga_recenzie");
+      form.style.display = 'none';
+    }
+  }
+}
+
+//contdown pentru oferte
+var count1 = new Date("Jun 24, 2022 00:00:00").getTime();
+var count2 = new Date("Jul 06, 2022 00:00:00").getTime();
+var count3 = new Date("Jun 27, 2022 00:00:00").getTime();
+var count4 = new Date("Jun 28, 2022 00:00:00").getTime();
+var count5 = new Date("Jun 30, 2022 00:00:00").getTime();
+
+var ded1 = document.createElement("p");
+var ded2 = document.createElement("p");
+var ded3 = document.createElement("p");
+var ded4 = document.createElement("p");
+var ded5 = document.createElement("p");
+
+var div1 = document.getElementById("of1");
+var div2 = document.getElementById("of2");
+var div3 = document.getElementById("of3");
+var div4 = document.getElementById("of4");
+var div5 = document.getElementById("of5");
+
+div1.appendChild(ded1);
+div2.appendChild(ded2);
+div3.appendChild(ded3);
+div4.appendChild(ded4);
+div5.appendChild(ded5);
+
+ded1.style.marginLeft = "28%";
+ded2.style.marginLeft = "28%";
+ded3.style.marginLeft = "28%";
+ded4.style.marginLeft = "28%";
+ded5.style.marginLeft = "28%";
+
+ded1.style.fontSize = "2vw";
+ded2.style.fontSize = "2vw";
+ded3.style.fontSize = "2vw";
+ded4.style.fontSize = "2vw";
+ded5.style.fontSize = "2vw";
+
+ded1.style.color = "red";
+ded2.style.color = "red";
+ded3.style.color = "red";
+ded4.style.color = "red";
+ded5.style.color = "red";
+
+var x = setInterval(function() {
+
+  // data de azi
+  var now = new Date().getTime();
+    
+  // distante dintre countdown si data de acum
+  var dist1 = count1 - now;
+  var dist2 = count2 - now;
+  var dist3 = count3 - now;
+  var dist4 = count4 - now;
+  var dist5 = count5 - now;
+    
+  // calcul pentru zile, ore, minute si secunde ramase
+  var days1 = Math.floor(dist1 / (1000 * 60 * 60 * 24));
+  var hours1 = Math.floor((dist1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes1 = Math.floor((dist1 % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds1 = Math.floor((dist1 % (1000 * 60)) / 1000);
+
+  var days2 = Math.floor(dist2 / (1000 * 60 * 60 * 24));
+  var hours2 = Math.floor((dist2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes2 = Math.floor((dist2 % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds2 = Math.floor((dist2 % (1000 * 60)) / 1000);
+
+  var days3 = Math.floor(dist3 / (1000 * 60 * 60 * 24));
+  var hours3 = Math.floor((dist3 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes3 = Math.floor((dist3 % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds3 = Math.floor((dist3 % (1000 * 60)) / 1000);
+
+  var days4 = Math.floor(dist4 / (1000 * 60 * 60 * 24));
+  var hours4 = Math.floor((dist4 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes4 = Math.floor((dist4 % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds4 = Math.floor((dist4 % (1000 * 60)) / 1000);
+
+  var days5 = Math.floor(dist5 / (1000 * 60 * 60 * 24));
+  var hours5 = Math.floor((dist5 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes5 = Math.floor((dist5 % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds5 = Math.floor((dist5 % (1000 * 60)) / 1000);
+
+  ded1.innerHTML = "Oferta valabila inca: " + days1 + " zile, " + hours1 + " ore, " + minutes1 + " minute, " + seconds1 + " secunde ";
+  ded2.innerHTML = "Oferta valabila inca: " + days2 + " zile, " + hours2 + " ore, " + minutes2 + " minute, " + seconds2 + " secunde ";
+  ded3.innerHTML = "Oferta valabila inca: " +days3 + " zile, " + hours3 + " ore, " + minutes3 + " minute, " + seconds3 + " secunde ";
+  ded4.innerHTML = "Oferta valabila inca: " + days4 + " zile, " + hours4 + " ore, " + minutes4 + " minute, " + seconds4 + " secunde ";
+  ded5.innerHTML = "Oferta valabila inca: " + days5 + " zile, " + hours5 + " ore, " + minutes5 + " minute, " + seconds5 + " secunde ";
+
+
+}, 1000);
+
+
+
+
+

@@ -8,7 +8,7 @@
     <link rel="stylesheet" media='screen and (max-width: 400px)' href="telefon.css"/>
     <link rel="stylesheet" media='screen and (min-width: 401px) and (max-width: 700px)' href="tableta.css"/>
     <link rel="stylesheet" media='screen and (min-width: 701px)' href="desktop.css"/>
-    <script src="./edit.js"></script>
+    <script src="./edit.js" defer></script>
     <title>Adopta un caine</title>
 </head>
 
@@ -28,7 +28,7 @@
        
 
           <nav class="nav_home">
-            <div class="div_nav_home">
+              <div class="div_nav_home">
                 <li class="navi despre_noi" onclick="afis_del_despre()">Despre noi</li>
                 <div class="despre_" id="despre">
                     <p>Activitatea noastra a inceput in 2018 cand am primit primii caini de pe strada.</p>
@@ -37,7 +37,7 @@
                     </p>
                 </div>
 
-                <li class="navi" onclick="afis_del_caini()">Cainii nostri</li>
+                <li class="navi" onclick="afis_del_caini()">Cainii nostri ( cativa din ei )</li>
                 <div id="caini">
                   <div class="pozz1">
                     <img src="./catei/5882533.jpg" class="poz poz1">
@@ -215,10 +215,70 @@
                     <p>In caz ca ai alte intrebari, nu ezita sa lasi una la sectiunea "Contact" si ti se va raspunde in cel mai scurt timp posibil</p>
                   </ul>
                 </div>
-                
-                </div>
-                
+
+                <li class="navi" id="recenzii">Recenzii</li> <!--adaugi eventListener-->
+                <div id="rec_tot">
+                  <div class="sageti" id="st"><</div>
+                  <div id="div_mare_rev">
+                    <div class="reviews rev_p1" id="rev_1">
+                      <pre>
+Nume: Radu Larisa
+Email: radularisa@gmail.com
+Nota: 9/10</pre>
+                      <hr>
+                      <p>
+                        Viata mea e mai buna de cand am adoptat un caine de la acest adapost.
+                      </p>
+                    </div>
+                    <div class="reviews rev_p1" id="rev_2">
+                      <pre>
+Nume: Dragos Matei
+Email: dragos_matei@gmail.com
+Nota: 10/10</pre>
+                      <hr>
+                      <p>
+                        Am primit ajutor si sfaturi pe durata intregului proces de adoptie, cat si dupa.
+                        Seriozitate si profesionalism, recomand!!!
+                      </p>
+                    </div>
+                    <div class="reviews rev_p1" id="rev_3">
+                      <pre>
+Nume: Mosneagu Robert
+Email: msngro@gmail.com
+Nota: 7/10</pre>
+                      <hr>
+                      <p>Personalul foarte dragut, dar am ceva probleme cu cainele</p>
+                    </div>
+                    <div class="reviews rev_p2" id="rev_4">
+                      <pre>
+Nume: Udrea Ioana
+Email: ioana@gmail.com
+Nota: 9/10</pre>
+                      <hr>
+                      <p>Am adoptat acum un an, totul bine pana acum</p>
+                    </div>
+                    <div class="reviews rev_p2" id="rev_5">
+                      <pre>
+Nume: Rusu Dan
+Email: rusudan@gmail.com
+Nota: 8/10</pre>
+                      <hr>
+                      <p>Foarte bun recomand 100%!!!</p>
+                    </div>
+                  </div>
+                  <div class="sageti" id="dr">></div>
+              </div>
+              <div id="ad_rec">Adauga Recenzie</div>
             </div>
+            <div id="adauga_recenzie">
+              <h1 style="font-size: 2.5vw; text-align: center;">Completeaza formularul de mai jos pentru a adauga recenzia</h1>
+              <hr><br>
+              <input type="text" placeholder="Nume" id="nume"><br>
+              <input type="text" placeholder="Email" id="email"><br>
+              <input type="number" placeholder="Nota" id="nota" min="0" max="10"><br>
+              <textarea placeholder="Mesaj" id="msj" cols="30" rows="10"></textarea><br>
+              <button id="send">TRIMITE</button>
+          </div>
           </nav>  
         
     </main>
