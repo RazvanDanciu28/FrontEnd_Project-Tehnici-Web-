@@ -8,7 +8,7 @@
     <link rel="stylesheet" media='screen and (max-width: 400px)' href="tel_ad.css"/>
     <link rel="stylesheet" media='screen and (min-width: 401px) and (max-width: 700px)' href="tab_ad.css"/>
     <link rel="stylesheet" media='screen and (min-width: 701px)' href="desk_ad.css"/>
-    <script src="./edit.js"></script>
+    <script src="./edit.js" defer></script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
         </div>
 
 
-        <h1 style="text-align: center;">Vrei si tu sa ajungi asa?</h1>
+        <h1 style="text-align: center; display: none;" id="h1_adopt">Vrei si tu sa ajungi asa?</h1>
         <button onclick="pleaca()" id="buton">Hai sa adopti!!</button><br>
         <div id="tranz">
             <img class="poz_bff" id="pozik" src="https://www.washingtonpost.com/news/speaking-of-science/wp-content/uploads/sites/36/2015/05/iStock_000057184996_XXXLarge-AQCI_image_982w.jpg">
@@ -34,18 +34,62 @@
             <div id="chest">
                 <div id="chest_inreg">
                     <p>Inregistreaza-te</p>  
-                    <input type="text" placeholder="Nume" id="in"><br>
-                    <input type="text" placeholder="Prenume" id="in"><br>
-                    <input type="text" placeholder="Email" id="in"><br>
-                    <input type="text" placeholder="Telefon" id="in"><br>
-                    <input type="password" placeholder="Parola" id="in"><br>
-                    <button class="inreg" onclick="ms()">Inregistreaza-te</button>
+                    <input type="text" placeholder="Nume" id="name"><br>
+                    <input type="text" placeholder="Prenume" id="prenume"><br>
+                    <input type="text" placeholder="Email" id="email_ad"><br>
+                    <input type="text" placeholder="Telefon" id="tel"><br>
+                    <input type="password" placeholder="Parola" id="parola"><br>
+                    <button class="inreg" onclick="ms_inreg()">Inregistreaza-te</button>
+                    <br>
+                    <button onclick="ms_aut()">Ai deja cont? Autentifica-te</button>
                 </div>
 
-                <p id="mss">Multumim! Vei fi contactat cat mai curand pentru a fi indrumat in legatura cu urmatorii pasi</p>
+                <div id="chest_aut">
+                    <p>Autentifica-te</p>  
+                    <input type="text" placeholder="Email" id="email_aut"><br>
+                    <input type="password" placeholder="Parola" id="parola_aut"><br>
+                    <button class="inreg" onclick="verif_aut()">Autentifica-te</button>
+                </div>
+
+                <div id="mss" style="text-align: left;">
+                    <h1 id="salut!" style="margin-left: -2vw;"></h1>
+                    <h1 id="completeaza" style="margin-left: -2vw;">Formular de adoptie</h1>
+
+                    <div id="div_talie">
+                        <label for="Talie">Talie:</label>
+                        <select name="Talie" id="talie">
+                            <option value="mare">Mare</option>
+                            <option value="mediu">Mediu</option>
+                            <option value="mic">Mic</option>
+                        </select>
+                    </div>
+
+                    <div id="div_sex">
+                        <form>
+                            <label>Sex:</label>
+                            <label class="radio-inline">
+                              <input type="radio" name="radio_sex">Feminin
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="radio_sex">Masculin
+                            </label>
+                          </form>
+                    </div>
+
+                    <div id="div_varsta">
+                        <label for="volume">Varsta:</label>
+                        <input type="range" id="varsta" name="varsta" min="0" max="7">
+                    </div>
+
+                    <div id="div_rasa">
+                        <label for="rasa">Rasa:</label>
+                        <input type="text" placeholder="Introdu o rasa de caine" id="rasa" name="rasa">
+                    </div>
+
+                    <br>
+                    <button id="send" onclick="send()" style="margin-left: 7vw;">Trimite</button>
+                </div>
             </div>
-          
-            
         </div>
     </main>
 </body>

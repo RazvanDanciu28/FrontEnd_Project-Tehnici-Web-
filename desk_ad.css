@@ -102,7 +102,7 @@ body {
     height: 2vw;
     color: red;
     font-size: 1.5vw;
-
+    display: none;
     animation: vine 300ms ease-in-out;
 }
 .poz_bff {
@@ -157,12 +157,20 @@ p {
 }
 
 #mss {
-    margin-top: 15vw;
+    margin-left: 8vw;
     display: none;
 }
 
+
 #tranz{
-    display: inline-flex;
+    display: none;
+}
+
+#chest_aut{
+    display: none;
+}
+#chest_inreg{
+    display: none;
 }
 
 
